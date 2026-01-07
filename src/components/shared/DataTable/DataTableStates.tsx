@@ -55,7 +55,7 @@ export function LoadingState({ rows = 5, columns = 5 }: LoadingStateProps) {
         <Box key={i} display="flex" gap={4} py={3} borderBottom="1px solid" borderColor="gray.200">
           {Array.from({ length: columns }).map((_, j) => (
             <Box key={j} flex={1}>
-              <Box h={4} bg="gray.200" borderRadius="md" animate="pulse" />
+              <Box h={4} bg="gray.200" borderRadius="md" />
             </Box>
           ))}
         </Box>

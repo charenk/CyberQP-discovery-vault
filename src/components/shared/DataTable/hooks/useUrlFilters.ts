@@ -19,19 +19,15 @@ export function useUrlFilters(
   onFilterChange: (filters: FilterState) => void,
   persistFilters: boolean = false
 ) {
-  // In Storybook, this hook does nothing - just return null
-  // This satisfies React's rules of hooks (hook is always called)
-  if (isStorybook() || !persistFilters) {
-    return null
-  }
-
-  // Only in Next.js environment - we need to use Next.js hooks
-  // But we can't conditionally call hooks, so we'll use a different approach
-  // We'll use window.location for URL manipulation as a fallback
+  // Always call hooks at the top level - never conditionally
+  // Check conditions inside the effect instead
   useEffect(() => {
-    // This effect only runs in Next.js (not Storybook due to early return above)
-    // But we still can't call Next.js hooks here because they must be at the top level
-    // So we'll handle URL persistence differently - using window.history API directly
+    // Early return inside effect (not a hook call)
+    if (isStorybook() || !persistFilters) {
+      return
+    }
+
+    // Only run in Next.js environment with persistence enabled
     if (typeof window === 'undefined') return
 
     // Use browser APIs directly instead of Next.js router hooks
@@ -63,10 +59,10 @@ export function useUrlFilters(
       }
     })
 
-    // Update URL using browser history API (works in both Next.js and Storybook, but we only run this in Next.js)
+    // Update URL using browser history API
     const newUrl = `${window.location.pathname}?${params.toString()}`
     window.history.replaceState({}, '', newUrl)
-  }, [filterState.appliedFilters, filterState.globalSearch, persistFilters])
+  }, [filterState.appliedFilters, filterState.globalSearch, persistFilters, onFilterChange])
 
   return null
 }

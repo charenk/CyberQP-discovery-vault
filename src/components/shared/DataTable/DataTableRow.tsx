@@ -144,7 +144,7 @@ export function DataTableRow<T = any>({
                       isDisabled={isDisabled}
                       color={action.variant === 'danger' ? 'red.500' : undefined}
                     >
-                      {action.icon && <Icon as={action.icon} mr={2} />}
+                      {action.icon && <Icon as={action.icon as any} mr={2} />}
                       {action.label}
                     </MenuItem>
                   )

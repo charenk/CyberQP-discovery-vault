@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { DataTable, ColumnDef } from './DataTable'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
+import { DataTable } from './DataTable'
+import type { ColumnDef } from './types'
 
 interface SimpleUser {
   id: string
@@ -81,9 +82,9 @@ type Story = StoryObj<typeof DataTable>
 export const Basic: Story = {
   args: {
     data: simpleData,
-    columns: simpleColumns,
-    getRowId: (row) => row.id,
-  },
+    columns: simpleColumns as any,
+    getRowId: (row: SimpleUser) => row.id,
+  } as any,
 }
 
 export const WithEnumFilters: Story = {
@@ -94,9 +95,9 @@ export const WithEnumFilters: Story = {
       { id: '5', name: 'Charlie Davis', email: 'charlie@example.com', status: 'Pending', department: 'Security' },
       { id: '6', name: 'Diana Wilson', email: 'diana@example.com', status: 'Inactive', department: 'HR' },
     ],
-    columns: columnsWithEnum,
-    getRowId: (row) => row.id,
+    columns: columnsWithEnum as any,
+    getRowId: (row: SimpleUser) => row.id,
     enableColumnFilters: true,
-  },
+  } as any,
 }
 

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { TopNav } from './TopNav'
 import { Box } from '@chakra-ui/react'
 

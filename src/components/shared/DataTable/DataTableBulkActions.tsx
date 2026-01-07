@@ -82,7 +82,7 @@ export function DataTableBulkActions<T = any>({
                 return (
                   <Button
                     key={action.id}
-                    leftIcon={action.icon ? <Icon as={action.icon} /> : undefined}
+                    leftIcon={action.icon ? <Icon as={action.icon as any} /> : undefined}
                     onClick={() => handleActionClick(action)}
                     isDisabled={isDisabled}
                     variant={action.variant === 'danger' ? 'solid' : 'outline'}
