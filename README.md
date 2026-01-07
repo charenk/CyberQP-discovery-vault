@@ -11,16 +11,7 @@ A code-first prototype for Privileged Access Management built with Next.js and C
 npm install
 ```
 
-2. Set up environment variables:
-```bash
-# Copy the example env file
-cp .env.example .env.local
-
-# Add your Supabase credentials to .env.local
-# Get these from: https://app.supabase.com/project/_/settings/api
-```
-
-3. Run the development server:
+2. Run the development server:
 ```bash
 npm run dev
 ```
@@ -39,7 +30,6 @@ npm run dev
 - **TypeScript** - Type safety
 - **React Icons** - Icon library
 - **date-fns** - Date utilities
-- **Supabase** - Backend as a Service (Database, Auth, Storage)
 - **Vercel** - Hosting and deployment
 - **Storybook** - Component documentation and development
 
@@ -63,7 +53,7 @@ src/
 ## Documentation
 
 - **Component Documentation**: View components in Storybook (`npm run storybook`)
-- **Setup Guide**: See [SETUP.md](./SETUP.md) for Supabase and Vercel configuration
+- **Setup Guide**: See [SETUP.md](./SETUP.md) for Vercel deployment configuration
 - **UX Guidelines**: Maintained in `/docs` and synced to Confluence
 
 ## Development
