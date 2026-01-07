@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Providers } from './providers'
+import { ColorModeScript } from '@chakra-ui/react'
+import { theme } from '@/theme'
 
 export const metadata: Metadata = {
   title: 'CyberQP - Privileged Access Management',
@@ -12,7 +14,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>

@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Box,
   Container,
@@ -13,8 +15,10 @@ import {
   SimpleGrid,
   Card,
   CardBody,
+  Button,
 } from '@chakra-ui/react'
 import { FiUsers, FiShield, FiClock, FiAlertCircle } from 'react-icons/fi'
+import NextLink from 'next/link'
 
 export default function Home() {
   return (
@@ -88,11 +92,16 @@ export default function Home() {
               <Heading size="md" mb={4}>
                 Quick Actions
               </Heading>
-              <HStack spacing={4}>
+              <VStack spacing={4} align="stretch">
                 <Text color="gray.600">
                   Welcome to CyberQP! Start by exploring the navigation menu.
                 </Text>
-              </HStack>
+                <HStack>
+                  <Button as={NextLink} href="/table-demo" colorScheme="green">
+                    View DataTable Demo
+                  </Button>
+                </HStack>
+              </VStack>
             </CardBody>
           </Card>
         </VStack>
